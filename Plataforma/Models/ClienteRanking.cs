@@ -27,5 +27,7 @@ namespace Plataforma.Models
             DataCalculo = dataCalculo;
             Cliente = cliente;
         }
+
+
     }
 }

@@ -41,18 +41,16 @@ namespace Plataforma.Controllers
 
         // PUT: api/Clientes/5
         [HttpPut("{id}")]
-        public ActionResult<Cliente> Put(Cliente cliente)
+        public void Put(Cliente cliente)
         {
-            Cliente cli = _clienteService.Insert(cliente);
-
-            return cli;
-            
+            _clienteService.Insert(cliente);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+
         }
     }
 }

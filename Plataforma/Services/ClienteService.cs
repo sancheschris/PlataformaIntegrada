@@ -35,7 +35,7 @@ namespace Plataforma.Services
             return _plataformaContext.Cliente.Where(x => x.Email == email).ToList();
         }
 
-        public Cliente Insert(Cliente obj)
+        public void Insert(Cliente obj)
         {
             _plataformaContext.Add(obj);
             _plataformaContext.SaveChangesAsync();
