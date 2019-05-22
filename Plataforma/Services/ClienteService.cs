@@ -38,7 +38,7 @@ namespace Plataforma.Services
         public void Insert(Cliente obj)
         {
             _plataformaContext.Add(obj);
-            _plataformaContext.SaveChangesAsync();
+            _plataformaContext.SaveChanges();
             
         }
 
@@ -48,7 +48,7 @@ namespace Plataforma.Services
             {
                 var obj = _plataformaContext.Cliente.Find(id);
                 _plataformaContext.Cliente.Remove(obj);
-                _plataformaContext.SaveChangesAsync();
+                _plataformaContext.SaveChanges();
             }
             catch (DbUpdateException e)
             {
@@ -56,9 +56,10 @@ namespace Plataforma.Services
             }
         }
 
-        public void UpdateAsync(Cliente obj)
+        public void Update(Cliente obj)
         {
             bool hasAny = _plataformaContext.Cliente.Any(x => x.Id == obj.Id);
+            //var hasAny = _plataformaContext.Cliente.Find(id);
             if (!hasAny)
             {
                 throw new Exception("Id not found");
@@ -66,7 +67,7 @@ namespace Plataforma.Services
             try
             {
                 _plataformaContext.Update(obj);
-                _plataformaContext.SaveChangesAsync();
+                _plataformaContext.SaveChanges();
             }
             catch (DbUpdateConcurrencyException e)
             {

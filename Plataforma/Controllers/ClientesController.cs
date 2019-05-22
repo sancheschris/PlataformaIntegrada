@@ -35,15 +35,18 @@ namespace Plataforma.Controllers
 
         // POST: api/Clientes
         [HttpPost]
-        public void Post([FromBody] Cliente value)
+        public IActionResult Post([FromBody] Cliente cliente)
         {
+            _clienteService.Insert(cliente);
+            return Ok("Record update Successfully");
         }
 
         // PUT: api/Clientes/5
-        [HttpPut("{id}")]
-        public void Put(Cliente cliente)
+        [HttpPut]
+        public IActionResult Put([FromBody] Cliente cliente)
         {
-            _clienteService.Insert(cliente);
+            _clienteService.Update(cliente);
+            return Ok("Update successfully");
         }
 
         // DELETE: api/ApiWithActions/5
